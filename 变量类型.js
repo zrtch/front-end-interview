@@ -46,7 +46,7 @@ console.log(0 == ''); // true
 console.log(0 == false); // true
 console.log(false == ''); // true
 console.log(null == undefined); // true
- 
+
 if (obj.a == null) { }
 
 console.log(!!0 === false); // true
@@ -67,3 +67,5 @@ let x1 = o1.x
 o2.x = 101
 x1 = 102
 console.log(o1); // { x: 101, y: 200 }
+
+
