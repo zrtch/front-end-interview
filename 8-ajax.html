@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <p>一段文字</p>
+
+    <script src="./8-ajax.js"></script>
+
+    <!-- <script>
+      window.callback = function (data) {
+        // 这是我们跨域得到信息
+        console.log(data)
+      }
+    </script>
+    <script src="http://127.0.0.1:5500/front-end-interview/data/jsonp.js"></script> -->
+
+    <script>
+      $.ajax({
+        url: 'http://127.0.0.1:5500/front-end-interview/data/jsonp.js',
+        dataType: 'jsonp',
+        jsonpCallback: 'callback',
+        success: function (data) {
+          console.log(data)
+        },
+      })
+    </script>
+  </body>
+</html>
