@@ -45,3 +45,36 @@ setTimeout(function () {
 }, 0)
 console.log(5); // 3
 
+// promise
+function loadImg(src) {
+  return new Promise((resolve, reject) => {
+    const img = document.createElement('img')
+    img.onload = () => { // 成功调用这个
+      resolve(img)
+    }
+    img.onerror = () => { // 失败调用这个
+      const err = new Error(`图片加载失败 ${src}`)
+      reject(err)
+    }
+    img.src = src
+  })
+}
+
+const url1 = "https://raw.githubusercontent.com/zrtch/blog-img/master/1671608929746-768ee35f-e8ce-4682-9c69-7f4fdb73c7aa.jpeg"
+
+const url2 = "https://raw.githubusercontent.com/zrtch/blog-img/master/1670221028524-da7c8e31-7819-4c26-9afa-1a97b000d9ee.png"
+
+loadImg(url1).then(img => {
+  console.log(img.width); // 1843
+  return img // 普通对象
+}).then(img => {
+  console.log(img.height); // 1785
+  return loadImg(url2) // promise 实例
+}).then(img2 => {
+  console.log(img2.width); // 1278
+  return img2
+}).then(img2 => {
+  console.log(img2.height); // 660
+}).catch(ex => {
+  console.log(ex);
+})
