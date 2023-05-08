@@ -49,6 +49,11 @@ console.log(null == undefined); // true
 
 if (obj.a == null) { }
 
+const q = 1;
+console.log(!!q) // true
+const w = 0
+console.log(!!w); // false
+
 console.log(!!0 === false); // true
 console.log(!!NaN === false); // true
 console.log(!!'' === false); // true
